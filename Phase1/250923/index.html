@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>250923</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+
+<body>
+    <div class="flex-container">
+        <div class="box">A</div>
+        <div class="box">B</div>
+        <div class="box">C</div>
+    </div>
+    <div class="grid-container">
+        <div class="box">
+            <button id="btn">ここをクリックして!</button>
+            <p id="msg">ここに文字が表示されます。</p>
+            <button id="reset">リセット</button>
+        </div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+    </div>
+</body>
+
+<script>
+  const p = document.querySelector("#msg");
+  const btn = document.querySelector("#btn");
+  const reset = document.querySelector("#reset");
+
+  // 「クリックしてね」ボタン
+  btn.addEventListener("click", function() {
+    p.textContent = "ボタンがクリックされました！";
+  });
+
+  // 「リセット」ボタン
+  reset.addEventListener("click", function() {
+    p.textContent = "ここに文字が表示されます。"; // 初期状態に戻す
+  });
+</script>
+

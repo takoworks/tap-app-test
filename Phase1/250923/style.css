@@ -1,0 +1,33 @@
+.flex-container {
+  display: flex;
+  justify-content: center;  /* 横方向に中央寄せ */
+  align-items: center;      /* 縦方向に中央寄せ */
+  gap: 10px;                /* 要素間の隙間 */
+  margin: 20px 0;
+}
+
+.box {
+  background-color: lightblue;
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* 2列構成、均等幅 */
+  gap: 10px;                       /* 隙間 */
+  margin: 20px 0;
+}
+
+/* スマホ幅（600px以下の画面） */
+@media (max-width: 600px) {
+  .flex-container {
+    flex-direction: column;  /* 縦並び */
+    align-items: center;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr; /* 1列 */
+  }
+}

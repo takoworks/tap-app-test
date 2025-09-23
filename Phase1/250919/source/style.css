@@ -1,0 +1,90 @@
+/* ページ全体の背景 */
+body {
+  background-color: #99f0f0; /* 薄いグレー背景 */
+  display: flex;
+  justify-content: center;  /* 水平方向の中央 */
+  align-items: center;      /* 垂直方向の中央 */
+  height: 100vh;            /* 画面全体の高さを確保 */
+  margin: 0;                /* 余白をなくす */
+}
+
+h1 {
+  font-size: 1.5em;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+p {
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+/* フレーム本体 */
+.frame {
+  width: 360px;   /* スマホ幅 */
+  height: 640px;  /* スマホ高さ */
+  background-color: #ffffff; /* 白い背景 */
+  border: 2px solid #ccc;    /* 薄い枠線 */
+  border-radius: 12px;       /* 角を丸く */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* 影 */
+  padding: 16px;  /* 内側の余白 */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;        /* 全体は隠し… */
+}
+
+/* スクロールする本文エリア */
+.frame-content {
+  flex: 1 1 auto;
+  overflow: auto;          /* …ここだけスクロール */
+  padding-right: 4px;      /* 文字がスクロールバーに当たらないように */
+}
+
+/* 画像とタイポ */
+.frame img { 
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  margin: 8px 0;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans JP",
+               "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+ul { padding-left: 1.2em; margin: 0 0 12px; }
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ちょいキレイなスクロールバー（対応ブラウザのみ） */
+.frame-content::-webkit-scrollbar { width: 8px; }
+.frame-content::-webkit-scrollbar-thumb { background: #ddd; border-radius: 8px; }
+
+.flex-container {
+  display: flex;
+  justify-content: center;  /* 横方向に中央寄せ */
+  align-items: center;      /* 縦方向に中央寄せ */
+  gap: 10px;                /* 要素間の隙間 */
+  margin: 20px 0;
+}
+
+.box {
+  background-color: lightblue;
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* 2列構成、均等幅 */
+  gap: 10px;                       /* 隙間 */
+  margin: 20px 0;
+}
+
+/* iOS セーフエリア（将来スマホ実機で開いた時に効く） */
+.frame { padding: calc(16px + env(safe-area-inset-top)) 16px 
+                 calc(16px + env(safe-area-inset-bottom)) 16px; }
+
