@@ -1,0 +1,47 @@
+<button id="nextBtn">次へ</button>
+
+<script>
+  function goNext() {
+    console.log("次へ進む処理を実行");
+  }
+
+  const nextBtn = document.getElementById("nextBtn");
+  nextBtn.addEventListener("click", goNext);
+</script>
+
+<script>
+  function goPrev() { console.log("前へ"); }
+  function goNext() { console.log("次へ"); }
+
+  window.addEventListener("keydown", (e) => {
+    if (e.code === "ArrowRight" || e.key === "ArrowRight") {
+      goNext();
+    } else if (e.code === "ArrowLeft" || e.key === "ArrowLeft") {
+      goPrev();
+    } else if (e.code === "Space" || e.key === " ") {
+      e.preventDefault(); // スクロール抑止（重要）
+      goNext();
+    }
+  });
+</script>
+
+<script>
+  let isLocked = false;
+
+  function withLock(fn) {
+    if (isLocked) return;
+    isLocked = true;
+    try { fn(); }
+    finally {
+      setTimeout(() => { isLocked = false; }, 150); // 150msだけロック
+    }
+  }
+
+  function goNext() { console.log("次へ"); }
+  function goPrev() { console.log("前へ"); }
+
+  document.addEventListener("click", (e) => {
+    if (e.target.matches("#nextBtn")) withLock(goNext);
+    if (e.target.matches("#prevBtn")) withLock(goPrev);
+  });
+</script>
