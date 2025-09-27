@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>イベント処理 Step2</title>
+</head>
+<body>
+  <label>
+    名前を入力: <input id="name" type="text">
+  </label>
+  <p id="preview">ここに入力内容が表示されます</p>
+  <button id="btn">ボタン</button>
+  <p id="msg">ここにメッセージが出ます</p>
+
+  <script>
+    const inputField = document.querySelector("#name");
+    const preview = document.querySelector("#preview");
+
+    inputField.addEventListener("input", () => {
+      preview.textContent = `入力中: ${inputField.value}`;
+    });
+
+    const btn = document.querySelector("#btn");
+    const msg = document.querySelector("#msg");
+
+    // クリックイベント
+    btn.addEventListener("click", () => {
+      msg.textContent = "クリックされました！";
+    });
+
+    // マウスオーバーイベント
+    btn.addEventListener("mouseover", () => {
+      msg.textContent = "マウスが乗りました！";
+    });
+
+    // マウスが離れたときのイベント
+    btn.addEventListener("mouseout", () => {
+      msg.textContent = "マウスが離れました！";
+    });
+  </script>
+</body>
+</html>
