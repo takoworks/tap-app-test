@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Day12 DOM操作</title>
+  <style>
+    /* 見た目の最低限のCSS */
+    body { font-family: sans-serif; padding: 20px; }
+    ul { padding: 0; }
+    li { list-style: none; margin: 5px 0; }
+    .fade {
+      animation: fadein 0.5s ease;
+    }
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(-10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+        li { 
+    list-style: none; 
+    margin: 5px 0; 
+    padding: 10px; 
+    background: lightgray; 
+    cursor: pointer; 
+    }
+    .active { 
+    background: tomato; 
+    color: white; 
+    }
+
+  </style>
+</head>
+<body>
+  <h1>リスト追加テスト</h1>
+  <button id="addBtn">項目を追加</button>
+  <ul id="list"></ul>
+
+  <script src="script.js"></script>
+</body>
+</html>
