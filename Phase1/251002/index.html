@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Day14 DOM復習</title>
+  <style>
+    .highlight {
+      background-color: rgb(255, 0, 0);
+      transition: background-color 1.5s ease; /* ← 0.5秒かけて色が変わる */
+    }
+  </style>
+</head>
+<body>
+  <h1>DOM操作テスト</h1>
+  <button id="add">要素を追加</button>
+  <button id="remove">要素を削除</button>
+  <button id="toggle">色を切り替え</button>
+  <div id="progress-container" style="width: 100%; height: 20px; background: #eee; margin-top: 20px;">
+    <div id="progress-bar" style="width: 0%; height: 100%; background: green; transition: width 0.3s;"></div>
+  </div>
+  <button id="progress-btn">進捗を進める</button>
+
+  <ul id="list">
+    <li>最初の項目</li>
+  </ul>
+
+  <script>
+    const list = document.querySelector("#list");
+    const addBtn = document.querySelector("#add");
+    const removeBtn = document.querySelector("#remove");
+    const toggleBtn = document.querySelector("#toggle");
+
+    // 要素追加
+    addBtn.addEventListener("click", () => {
+      const li = document.createElement("li");
+      li.textContent = "新しい項目";
+      list.appendChild(li);
+    });
+
+    // 要素削除（最後の子要素を削除）
+    removeBtn.addEventListener("click", () => {
+      if (list.lastChild) {
+        list.removeChild(list.lastChild);
+      }
+    });
+
+    // クラス切替（最初の要素を強調）
+    toggleBtn.addEventListener("click", () => {
+      if (list.firstElementChild) {
+        list.firstElementChild.classList.toggle("highlight");
+      }
+    });
+
+    const progressBar = document.querySelector("#progress-bar");
+    const progressBtn = document.querySelector("#progress-btn");
+    let progress = 0;
+
+    progressBtn.addEventListener("click", () => {
+      if (progress < 100) {
+        progress += 20; // 20%ずつ進める
+        progressBar.style.width = progress + "%";
+      }
+    });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
